@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#filename
+FILENAME="list.txt"
+
+#get the current path of parent directory
+DIRPATH=`pwd`"/.db/"
+
+if [[ ! -e $DIRPATH$FILENAME ]] ; then
+	if [[ ! -d $DIRPATH ]] ; then
+		mkdir .db
+		touch $DIRPATH$FILENAME
+		echo "Dir created"
+	fi
+	echo "File created"
+fi
+
+for name in "$@" ; do
+	echo $name >> $DIRPATH$FILENAME
+done

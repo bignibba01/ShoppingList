@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#path of the file
+FILEPATH=`pwd`"/.db/list.txt"
+
+if [[ ! -e $FILEPATH ]] ; then echo "List is empty" ; else less $FILEPATH ; fi
