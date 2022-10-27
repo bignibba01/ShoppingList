@@ -1,3 +1,4 @@
 #!/bin/bash
 
 rm -rf `pwd`"/.db"
+if [ ! -d `pwd`"/.db" ] ; then echo "List deleted successfuly" ; else echo "File not found" ; fi ;
