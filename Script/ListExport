@@ -1,0 +1,19 @@
+#!/bin/bash
+
+DBPATH="$0/.db/list.txt"
+EXPATH="$0/../ExportFile/"
+
+#set name file by user input argument.extension, default "DayMonthDay-Month.txt"
+if [[ $# -ge 1 ]] ; then EXPORTNAME="$1" ; else EXPORTNAME=`date +"%a%m%d.txt"` ; fi
+
+if [[ -e $DBPATH ]] ; then 
+	if [[ ! -d $EXPATH ]] ; then
+		mkdir $EXPATH
+		echo "Dir $EXPATH created."
+	fi
+	cp $DBPATH $EXPATH$EXPORTNAME
+	echo "File exported in "`dirname "$0/.."`$EXPORTNAME
+else
+	echo "File $FILENAME doesn't exist."
+fi
+

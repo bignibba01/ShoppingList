@@ -4,11 +4,12 @@
 FILENAME="list.txt"
 
 #get the current path of parent directory
-DIRPATH=`pwd`"/.db/"
+#need to manipulate the string and erase ListAdd
+DIRPATH="$0/.db/"
 
 if [[ ! -e $DIRPATH$FILENAME ]] ; then
 	if [[ ! -d $DIRPATH ]] ; then
-		mkdir .db
+		mkdir $0"/.db"
 		touch $DIRPATH$FILENAME
 		echo "Dir created"
 	fi
